@@ -27,6 +27,12 @@ COPY --from=builder /free5gc/${F5GC_MODULE} ./${F5GC_MODULE}/
 COPY --from=builder /free5gc/libgtp5gnl.so.0 /usr/local/lib
 COPY --from=builder /free5gc/liblogger.so /usr/local/lib
 
+# Adding configuration files to the container at build time
+# Are these files
+COPY ./free5GC.conf /free5gc/config
+COPY ./router.sh /free5gc/config
+COPY ./upfcfg.yaml /free5gc/config
+
 # Move to the executable location
 WORKDIR /free5gc/${F5GC_MODULE}
 

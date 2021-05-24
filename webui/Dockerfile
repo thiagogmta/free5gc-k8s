@@ -18,6 +18,11 @@ RUN mkdir -p config/ webconsole/public
 COPY --from=builder /free5gc/${F5GC_MODULE} ./webconsole
 COPY --from=builder /free5gc/public ./webconsole/public
 
+# Adding configuration files to the container at build time
+# Are these files
+COPY ./free5GC.conf /free5gc/config
+COPY ./webuicfg.conf /free5gc/config
+
 # Move to the executable location
 WORKDIR /free5gc/webconsole
 

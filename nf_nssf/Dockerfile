@@ -19,6 +19,11 @@ COPY --from=builder /free5gc/${F5GC_MODULE} ./${F5GC_MODULE}
 COPY --from=builder /free5gc/support/TLS/${F5GC_MODULE}.pem ./support/TLS/
 COPY --from=builder /free5gc/support/TLS/${F5GC_MODULE}.key ./support/TLS/
 
+# Adding configuration files to the container at build time
+# Are these files
+COPY ./free5GC.conf /free5gc/config
+COPY ./nssfcfg.conf /free5gc/config
+
 # Move to the binary path
 WORKDIR /free5gc/${F5GC_MODULE}
 
