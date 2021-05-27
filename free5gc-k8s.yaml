@@ -335,7 +335,7 @@ items:
                   value: mongodb://db/free5gc
                 - name: GIN_MODE
                   value: release
-              image: thiagogmta/nrf:latest
+              image: thiagogmta/nf_nrf:latest
               name: nrf
               ports:
                 - containerPort: 29510
